@@ -19,7 +19,7 @@ defmodule Issues.GithubIssues do
  # use a module attribute to fetch the value at compile time
  @github_url Application.get_env(:issues, :github_url)
 
- def issues_url(yser, project) do
+ def issues_url(user, project) do
    "#{@github_url}/repos/#{user}/#{project}/issues"
  end
 
