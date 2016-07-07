@@ -8,7 +8,7 @@ defmodule Issues.CLI do
   Handle the command line parsing and the dispatch to the various functions that end up generating a table of the last_n_issues in a github project
   """
 
-  def run(argv) do
+  def main(argv) do
     argv
     |> parse_args
     |> process
@@ -46,7 +46,7 @@ defmodule Issues.CLI do
     System.halt(0)
   end
 
-  def process({user, project, _count}) do
+  def process({user, project, count}) do
     Issues.GithubIssues.fetch(user, project)
     |> decode_response
     |> convert_to_list_of_maps
